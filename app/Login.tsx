@@ -28,7 +28,7 @@ const Login = () => {
 			<div>
 				<button
 					className='block mx-auto py-2 px-4 rounded-lg font-medium text-white bg-indigo-500'
-					onClick={() => signIn()}>
+					onClick={() => signIn('google')}>
 					Sign In with Google
 				</button>
 			</div>

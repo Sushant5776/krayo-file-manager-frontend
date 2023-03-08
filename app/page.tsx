@@ -55,7 +55,7 @@ const HomePage = async () => {
 					</ul>
 				</section>
 			) : (
-				<p className='text-lg font-semibold animate-bounce'>
+				<p className='text-lg text-center font-semibold animate-bounce'>
 					Currently you have no files!
 				</p>
 			)}
