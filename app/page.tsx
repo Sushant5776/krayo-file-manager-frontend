@@ -8,7 +8,7 @@ const filenames = async () => {
 	if (!session?.user?.email) return
 
 	const res = await fetch(
-		`http://localhost:5000/file/user/${session.user.email}`,
+		`${process.env.NEXT_PUBLIC_API_URL}/file/user/${session.user.email}`,
 		{ method: 'GET', next: { revalidate: 120 } }
 	)
 	const data = await res.json()
@@ -46,7 +46,7 @@ const HomePage = async () => {
 								<a
 									download
 									title={file}
-									href={`http://localhost:5000/file/download/${session?.user?.email}/${file}`}
+									href={`${process.env.NEXT_PUBLIC_API_URL}/file/download/${session?.user?.email}/${file}`}
 									className='max-w-lg font-medium w-full block py-3 px-4 hover:outline outline-2 outline-slate-300 rounded-lg bg-slate-100 truncate transition-all duration-100'>
 									{file}
 								</a>

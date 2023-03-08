@@ -4,10 +4,6 @@ import { useSession } from 'next-auth/react'
 import { ChangeEvent, FormEvent, useState } from 'react'
 import axios from 'axios'
 
-// type Props = {
-// 	loadFiles: () => Promise<any>
-// }
-
 const Form = () => {
 	const [file, setFile] = useState<File | undefined>(undefined)
 	const [uploading, setUploading] = useState(false)
@@ -30,14 +26,17 @@ const Form = () => {
 		formData.append('user', session.user.email)
 
 		setUploading(true)
-		const res = await axios.post('http://localhost:5000/file', formData, {
-			headers: { 'Content-Type': 'multipart/form-data' },
-		})
+		const res = await axios.post(
+			`${process.env.NEXT_PUBLIC_API_URL!}/file`,
+			formData,
+			{
+				headers: { 'Content-Type': 'multipart/form-data' },
+			}
+		)
 		setUploading(false)
 		setFile(undefined)
 
 		if (res.status !== 200) alert(res.data.message)
-		// loadFiles()
 	}
 
 	return (
