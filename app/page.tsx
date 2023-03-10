@@ -20,7 +20,7 @@ const HomePage = async () => {
 	const session = await getServerSession()
 
 	return (
-		<main className='text-slate-900 space-y-6'>
+		<main className='text-slate-900 space-y-6 min-h-screen h-max scroll-smooth'>
 			<h1 className='text-3xl font-bold underline underline-offset-8 p-4 text-center text-indigo-500'>
 				Krayo - File Manager
 			</h1>
